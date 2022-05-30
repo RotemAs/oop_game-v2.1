@@ -2,12 +2,16 @@
  * Project 4 - OOP Game App
  * Phrase.js */
 
+// globals
 const phrasesUl = document.getElementById("phrase").querySelector("ul");
 
 class Phrase {
+    //Infrastructure
+
   constructor(phrase) {
     this.phrase = phrase.toLowerCase();
   }
+    //addPhraseToDisplay rendering 
 
   addPhraseToDisplay() {
     phrasesUl.innerHTML = "";
@@ -20,7 +24,7 @@ class Phrase {
       }
     });
   }
-
+//  letter selected by the player matches 
   checkLetter(letter) {
     if (this.phrase.includes(letter)) {
         this.showMatchedLetter(letter);
@@ -29,7 +33,7 @@ class Phrase {
         return false;
     };
   }
-
+// reveals the letter(s) on the board 
   showMatchedLetter(letter) {
     let lettersAtPhrase = phrasesUl.children;
     for (let i=0; i < lettersAtPhrase.length; i++) {
