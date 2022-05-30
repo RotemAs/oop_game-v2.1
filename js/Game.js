@@ -1,12 +1,14 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * Game.js */
+// globals
 const startScreen = document.getElementById("overlay");
 const hearts = document.querySelectorAll(".tries");
 const messageBoard = document.querySelector(".board-header")
 
 
 class Game{
+    //Infrastructure
     constructor() {
         this.missed =0 
         this.phrases = [
@@ -19,7 +21,7 @@ class Game{
         this.activePhrase = null
     }
 
-
+ // get start game 
     getRandomPhrase() {
         let phraseNum = Math.floor(Math.random() * this.phrases.length);
         return this.phrases[phraseNum].phrase;
@@ -45,7 +47,7 @@ class Game{
         console.log('this.activePhrase',this.activePhrase)
 
     };
-
+// handleInteraction --  game logic
     handleInteraction(button) {
         button.disabled = true;
         if (this.activePhrase.phrase.includes(button.innerHTML)) {
@@ -59,6 +61,9 @@ class Game{
             this.removeLife();
         };
     };
+
+    // the uniqueRemainingLetters is part of exceeds grade "Making the project your own" (i have create 'uniqueRemainingLetters' So that I may know Some unique letters remain \The amount of guesswork left   )
+
     checkForWin() {
         let remainingLetters = 0
         let uniqueRemainingLetters = []
@@ -79,7 +84,7 @@ class Game{
 
         }
     };
-
+// the on and  off class is to make the Button-style squares over the hearts of the experimenters (outset\inset style). 
     removeLife() {
         this.missed += 1;
         let heartIndex = hearts.length - this.missed;
