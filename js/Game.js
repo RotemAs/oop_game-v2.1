@@ -109,7 +109,7 @@ class Game {
     }
   }
 }
-
+// Auxiliary function for message Board for -  "Youre almost there" mission
 function sendMessageToBoard(isShown, message) {
   messageBoard.innerHTML = message;
   isShown
